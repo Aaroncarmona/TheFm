@@ -8,7 +8,7 @@ public class ApiConstants {
 
     public static final String API_KEY = "6607277371d9085d83ac451bddcf1836";
     public static final String URL_BASE= "http://ws.audioscrobbler.com";
-    public static final String PATH_VERSION = "/2.0";
+    public static final String PATH_VERSION = "/2.0/";
 
     public static final String PARAM_API_KEY = "api_key";
     public static final String PARAM_METHOD = "method";

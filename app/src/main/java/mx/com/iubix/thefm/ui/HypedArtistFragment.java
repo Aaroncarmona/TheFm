@@ -66,14 +66,11 @@ public class HypedArtistFragment extends Fragment implements Callback<HypedArtis
 
     }
 
-    /*private void setDummyContent(){
+    private void setDummyContent(){
         ArrayList<Artist> artists = new ArrayList<>();
-        for (int i = 0 ; i < 10 ; i++ ){
-            artists.add(new Artist("Artista " + (i+1) ));
-        }
-
+        artists.add(new Artist("No hay artistas disponibles..." ));
         adapter.addAll(artists);
-    }*/
+    }
 
     @Override
     public void success(HypedArtistResponse hypedArtistResponse, Response response) {
@@ -82,6 +79,7 @@ public class HypedArtistFragment extends Fragment implements Callback<HypedArtis
 
     @Override
     public void failure(RetrofitError error) {
+        setDummyContent();
         error.printStackTrace();
     }
 }

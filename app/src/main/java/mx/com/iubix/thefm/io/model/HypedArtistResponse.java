@@ -17,9 +17,16 @@ public class HypedArtistResponse {
     public ArrayList<Artist> getArtist(){
         return results.artists;
     }
+
+    public void setArtists(ArrayList<Artist> artists){
+        this.results.artists = artists;
+    }
+
     private class HypedArtistsResults{
-        @SerializedName(JsonKeys.ARTIST_ARRAY)
-        ArrayList<Artist> artists;
+       /* @SerializedName(JsonKeys.ARTIST_ARRAY)
+        ArrayList<Artist> artists;*/
+
+       ArrayList<Artist> artists;
     }
 
 }
