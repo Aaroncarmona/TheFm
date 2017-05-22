@@ -14,6 +14,8 @@ public class Artist {
     private String name;
     private String urlMediumImage;
     private String urlLargeImage;
+    private String playCount;
+    private String listeners;
 
     public Artist(){
 
@@ -27,6 +29,14 @@ public class Artist {
         this.name = name;
         this.urlMediumImage = urlMediumImage;
         this.urlLargeImage = urlLargeImage;
+    }
+
+    public Artist(String name, String urlMediumImage , String urlLargeImage , String playCount , String listeners ){
+        this.name = name;
+        this.urlMediumImage = urlMediumImage;
+        this.urlLargeImage = urlLargeImage;
+        this.playCount = playCount;
+        this.listeners = listeners;
     }
 
     public String getUrlMediumImage() {
@@ -51,5 +61,21 @@ public class Artist {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPlayCount() {
+        return playCount;
+    }
+
+    public void setPlayCount(String playCount) {
+        this.playCount = playCount;
+    }
+
+    public String getListeners() {
+        return listeners;
+    }
+
+    public void setListeners(String listeners) {
+        this.listeners = listeners;
     }
 }

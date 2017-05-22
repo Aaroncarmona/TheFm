@@ -15,9 +15,10 @@ public class ApiConstants {
     public static final String PARAM_FORMAT = "format";
 
     public static final String VALUE_HYPED_ARTIST_METHOD = "chart.gettopartists";
+    public static final String VALUE_TOP_ARTIST = "chart.gettopartists";
+
     public static final String VALUE_JSON = "json";
 
-    //http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=6607277371d9085d83ac451bddcf1836&format=json
 
     public static final String URL_HYPED_ARTISTS = PATH_VERSION + "?" +
             PARAM_API_KEY + "=" + API_KEY + "&" +
@@ -25,18 +26,8 @@ public class ApiConstants {
             PARAM_FORMAT + "=" + VALUE_JSON;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static final String URL_TOP_ARTISTS = PATH_VERSION + "?" +
+            PARAM_API_KEY + "=" + API_KEY + "&" +
+            PARAM_METHOD + "=" + VALUE_TOP_ARTIST + "&" +
+            PARAM_FORMAT + "=" + VALUE_JSON;
 }
