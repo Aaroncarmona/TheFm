@@ -7,13 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.upax.zeusloginsdk.entity.User;
+import com.upax.zeusloginsdk.interfaces.ILoginZeusResult;
+import com.upax.zeusloginsdk.ui.login.LoginFragment;
+import com.upax.zeusloginsdk.util.Util;
+
 import java.util.ArrayList;
 
 import mx.com.iubix.thefm.ui.adapter.PagerAdapter;
 import mx.com.iubix.thefm.ui.fragment.HypedArtistFragment;
 import mx.com.iubix.thefm.ui.fragment.TopArtistFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ILoginZeusResult {
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     Toolbar toolbar;
 
     ViewPager viewPager;
@@ -25,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        toolbar = findViewById(R.id.toolbar);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabLayout);
 
         setupViewPager();
 
@@ -44,9 +51,21 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Fragment> buildFragment() {
         ArrayList<Fragment> fragments = new ArrayList<>();
 
+        fragments.add(LoginFragment.newInstance());
         fragments.add(new HypedArtistFragment());
         fragments.add(new TopArtistFragment());
 
         return fragments;
+    }
+
+    @Override
+    public void loginSuccess(User user) {
+        Util.toast(getBaseContext() , user.getName());
+    }
+
+    @Override
+    public void loginError(Exception e) {
+        Util.toast(getBaseContext() , e.getMessage());
+
     }
 }

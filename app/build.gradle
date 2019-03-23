@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
 
-def LAST_FM_API_KEY ='"' + LastFMApiKey + '"' ?: '"Define LastFm Api key"';
+def LAST_FM_API_KEY = '"' + LastFMApiKey + '"' ?: '"Define LastFm Api key"';
 
 android {
     compileSdkVersion 28
@@ -12,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         debug {
@@ -20,6 +22,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
 }
 
 dependencies {
@@ -27,13 +32,31 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.squareup.retrofit:retrofit:1.9.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.google.code.gson:gson:2.3.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'io.reactivex:rxandroid:0.25.0'
     testImplementation 'junit:junit:4.12'
-    implementation project(':surveys_sdk')
+    implementation "com.google.firebase:firebase-firestore:$storage_fire"
+    implementation "com.google.firebase:firebase-storage:$firebase_storage"
+    implementation "com.android.support:appcompat-v7:$design"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_layout"
+    implementation "com.android.support:design:$design"
+    implementation "com.google.firebase:firebase-firestore:$storage_fire"
+    implementation "com.google.firebase:firebase-storage:$firebase_storage"
+    implementation "com.google.android.gms:play-services-location:$play_services"
+    implementation 'commons-codec:commons-codec:1.10'
+    implementation "com.android.support:multidex:$multidex"
+    //conexion ws
+    implementation "com.android.volley:volley:$volley"
+    //cam
+    implementation "io.fotoapparat:fotoapparat:$fapp"
+    implementation 'id.zelory:compressor:2.1.0'
+    //util
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
+        transitive = true
+    }
+    implementation project(':surveys')
+    implementation project(':zeusloginsdk-debug')
 }

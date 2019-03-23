@@ -10,10 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.upax.surveyssdk.Databases.SurveyDB.Contracts.TaskContract;
 
 import java.util.ArrayList;
 
 import mx.com.iubix.thefm.R;
+import mx.com.iubix.thefm.VApp;
 import mx.com.iubix.thefm.domain.Artist;
 
 /**
@@ -69,6 +71,13 @@ public class HypedArtistAdapter extends RecyclerView.Adapter<HypedArtistAdapter.
 
             artistName = (TextView) itemView.findViewById(R.id.txt_name_artist);
             artistImage = (ImageView) itemView.findViewById(R.id.img_artist);
+
+            artistName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    VApp.getSurveyContext().launchTask(v.getContext(),TaskContract.TaskType.TYPE_EJECUTION);
+                }
+            });
         }
 
         public void setArtistname(String name){

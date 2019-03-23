@@ -1,1 +1,1 @@
-include ':app', ':surveys_sdk'
+include ':app', ':surveys', ':zeusloginsdk-debug'

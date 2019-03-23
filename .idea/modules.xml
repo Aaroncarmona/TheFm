@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TheFm.iml" filepath="$PROJECT_DIR$/TheFm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/surveys_sdk/surveys_sdk.iml" filepath="$PROJECT_DIR$/surveys_sdk/surveys_sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/surveys/surveys.iml" filepath="$PROJECT_DIR$/surveys/surveys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zeusloginsdk-debug/zeusloginsdk-debug.iml" filepath="$PROJECT_DIR$/zeusloginsdk-debug/zeusloginsdk-debug.iml" />
     </modules>
   </component>
 </project>
